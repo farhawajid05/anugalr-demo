@@ -1,0 +1,17 @@
+<div *ngIf="contacts.length == 0;else:elseBlock">
+    <h2>No Contacts available</h2>
+  </div>
+
+  <ng-template #elseBlock>
+    <button mat-button (click)='selectMultiple()'>Select Cards to delete</button>
+  <section class='contact-list'>
+    
+
+    <app-contact-card #card
+    [contact]='contact'
+    (deleteEvent)='removeContact($event)'  
+    *ngFor='let contact of contacts'></app-contact-card>
+    
+  </section>
+</ng-template>
+

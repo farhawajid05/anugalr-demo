@@ -1,0 +1,14 @@
+.newcontact{
+    width: 50vw;
+    margin: 3em auto;
+
+}
+
+.contactform{
+    display: flex;
+    flex-direction: column;
+}
+
+.addbutton{
+    margin-left: auto;
+}

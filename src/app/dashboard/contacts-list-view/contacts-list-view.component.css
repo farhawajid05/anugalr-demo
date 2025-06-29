@@ -1,0 +1,12 @@
+section{
+    margin: 1em;
+}
+
+article{
+    display: flex;  
+    justify-content: space-evenly;
+}
+
+mat-icon{
+    font-size: 1em;
+}

@@ -1,0 +1,19 @@
+<mat-card class="contact-card" >
+    <mat-card-header>
+      <mat-card-title>{{contact.name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="assets/contact.png" alt="contact Photo">
+    <mat-card-content>
+      <p>{{contact.phone}}</p>
+      <p>{{contact.email}}</p>
+    </mat-card-content>
+    <mat-card-actions *ngIf='!selectMultiple'> 
+      <button mat-button (click)='editContact()'>EDIT</button>
+      <button mat-button (click)='deleteContact()'>DELETE</button>
+    </mat-card-actions>
+    <mat-card-actions *ngIf='selectMultiple'> 
+      <input mat-button type="checkbox">
+    </mat-card-actions>
+
+
+  </mat-card>

@@ -1,0 +1,21 @@
+<form #contactForm='ngForm' (ngSubmit)='saveContact(contactForm)'>
+    <div class="contactform">
+      <mat-form-field>
+          <input matInput placeholder="contact name" [(ngModel)]='contact.name' 
+          name='name' #name=ngModel required minlength="4">
+          <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
+          <mat-error *ngIf="name.errors?.minlength">Name length invalid</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="phone" [(ngModel)]='contact.phone' name='phone' #name=ngModel required>
+            <mat-error>Phone is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="email" [(ngModel)]='contact.email' name='email' #name=ngModel required>
+            <mat-error>Email is required</mat-error>
+          </mat-form-field>
+          <button mat-mini-fab color="primary" class='addbutton' type="submit" [disabled]='!contactForm.form.valid'>Save</button>
+          {{message}}
+        </div>
+      </form>

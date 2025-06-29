@@ -1,0 +1,29 @@
+<mat-expansion-panel #expPanel class='newcontact'>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        New Contact
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+  
+    <form #contactForm='ngForm' (ngSubmit)='addContact(contactForm)'>
+    <div class="contactform">
+      <mat-form-field>
+          <input matInput placeholder="contact name" [(ngModel)]='newContact.name' 
+          name='name' #name=ngModel required minlength="4">
+          <mat-error *ngIf="name.errors?.required">Name is required</mat-error>
+          <mat-error *ngIf="name.errors?.minlength">Name length invalid</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="phone" [(ngModel)]='newContact.phone' name='phone' #name=ngModel required>
+            <mat-error>Phone is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="email" [(ngModel)]='newContact.email' name='email' #name=ngModel required>
+            <mat-error>Email is required</mat-error>
+          </mat-form-field>
+          <button mat-fab color="primary" class='addbutton' type="submit" [disabled]='!contactForm.form.valid'>Add</button>
+          {{message}}
+        </div>
+      </form>
+  </mat-expansion-panel>

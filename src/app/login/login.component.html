@@ -1,0 +1,11 @@
+<form [formGroup]=loginform (ngSubmit)='login()'> 
+    <input placeholder="username" formControlName='username' 
+    [class.error-border]='username.touched && username.invalid'> 
+    <div *ngIf='username.touched && username.invalid'>
+        <small *ngIf='username.errors.required' class='error-message'>Name is required</small>
+        <small *ngIf='username.errors.minlength' class='error-message'>Name should be at least 4 characters</small>
+    </div>
+    <input id='password' placeholder="password" type="password" formControlName='password'> 
+    <button type="submit" class='button' [disabled]='!loginform.valid'>Login</button>
+    <small class='error-message' *ngIf='message'>{{message}}</small>
+</form>
